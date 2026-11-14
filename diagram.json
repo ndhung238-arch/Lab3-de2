@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "author": "Lab 3 - De 2",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -130, "left": 140, "attrs": {} },
+    { "type": "wokwi-led", "id": "led_mist", "top": 20, "left": 210, "attrs": { "color": "blue", "label": "Phun Suong" } },
+    { "type": "wokwi-led", "id": "led_pump", "top": 90, "left": 210, "attrs": { "color": "green", "label": "May Bom" } },
+    { "type": "wokwi-led", "id": "led_fan", "top": 160, "left": 210, "attrs": { "color": "yellow", "label": "Quat" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 65, "left": 150, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 135, "left": 150, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 205, "left": 150, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "dht1:SDA", "esp:D15", "green", [ "v0" ] ],
+    [ "esp:D18", "r1:1", "blue", [ "h0" ] ],
+    [ "r1:2", "led_mist:A", "blue", [ "h0" ] ],
+    [ "led_mist:C", "esp:GND.2", "black", [ "h0" ] ],
+    [ "esp:D19", "r2:1", "green", [ "h0" ] ],
+    [ "r2:2", "led_pump:A", "green", [ "h0" ] ],
+    [ "led_pump:C", "esp:GND.2", "black", [ "h0" ] ],
+    [ "esp:D21", "r3:1", "gold", [ "h0" ] ],
+    [ "r3:2", "led_fan:A", "gold", [ "h0" ] ],
+    [ "led_fan:C", "esp:GND.2", "black", [ "h0" ] ]
+  ]
+}
